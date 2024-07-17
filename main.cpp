@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cstdlib>   //for srand() and rand()
+#include <ctime>   //for time()
 
 using namespace std;
 
@@ -16,15 +18,15 @@ int main() {
 
 	while (true)
 	{
-		srand(time(NULL));
-		int ran = rand() % 3;
+		srand(time(NULL));   //shufffle
+		int ran = rand() % 3;   //to get the one random index from arr[]
 
 		for (;;)
 		{
 			cout << name << " >> ";
 			cin >> player;
-			transform(player.begin(), player.end(), player.begin(), tolower);
-			if (player != "rock" && player != "scissor" && player != "paper")
+			transform(player.begin(), player.end(), player.begin(), tolower);   //<algorithm> header, to make it lower case from upper case input
+			if (player != "rock" && player != "scissor" && player != "paper")   //if user type wrong
 			{
 				cout << "Try again" << endl;
 			}
